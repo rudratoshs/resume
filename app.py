@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify
 from langchain_ollama import OllamaLLM
+import subprocess
 
 app = Flask(__name__)
+
+# Start the Ollama server in the background
+subprocess.Popen(["ollama", "serve"])
 
 # Initialize the model
 llm = OllamaLLM(model="llama2")
