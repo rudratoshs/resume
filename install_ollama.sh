@@ -1,10 +1,17 @@
 #!/bin/bash
 
-# Download and install the Ollama CLI
-curl -LO https://ollama.ai/download/latest/ollama-linux-x64.tar.gz
-mkdir -p /usr/local/bin/ollama
-tar -xzf ollama-linux-x64.tar.gz -C /usr/local/bin/ollama
-export PATH="/usr/local/bin/ollama:$PATH"
+# Define installation directory (writable location)
+INSTALL_DIR=/tmp/ollama
+
+# Create installation directory
+mkdir -p $INSTALL_DIR
+
+# Download and extract Ollama
+curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+tar -xzf ollama-linux-amd64.tgz -C $INSTALL_DIR
+
+# Add to PATH
+export PATH="$INSTALL_DIR:$PATH"
 
 # Verify installation
-ollama version
+$INSTALL_DIR/ollama version

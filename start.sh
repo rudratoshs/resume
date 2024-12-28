@@ -4,9 +4,9 @@
 ./install_ollama.sh
 
 # Start the Ollama server
-/usr/local/bin/ollama/ollama serve &
+/tmp/ollama/ollama serve &
 
-# Wait for the Ollama server to start
+# Wait for the Ollama server to initialize
 sleep 5
 
 # Start the Flask application
